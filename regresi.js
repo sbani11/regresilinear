@@ -41,7 +41,7 @@ function calculateRegression() {
 
   document.getElementById('result').innerHTML = `
     <h3>Hasil Regresi:</h3>
-    <p>Persamaan: <strong>Y = ${a.toFixed(4)} + (${b.toFixed(4)} × ${x.toFixed(4)})<br></strong></p>
+    <p>Persamaan: <strong>Y = ${a.toFixed(4)} + (${b.toFixed(4)}X</strong></p>
   `;
 
   document.getElementById('prediction').style.display = 'block';
