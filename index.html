@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalkulator Regresi Linear</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      background-color: #f4f4f4;
+    }
+    h2, h3 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      margin-bottom: 20px;
+      background-color: white;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #999;
+      text-align: center;
+    }
+    input[type="number"] {
+      width: 80px;
+    }
+    .btn {
+      padding: 10px 15px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin: 5px;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+    #result, #prediction, #rumusSubstitusi {
+      background: white;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    #myChart {
+      margin-top: 30px;
+      background-color: white;
+      border-radius: 5px;
+    }
+    .btn-group {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Kalkulator Regresi Linear</h2>
+
+<div id="dataInputs">
+  <table id="inputTable">
+    <thead>
+      <tr><th>X</th><th>Y</th></tr>
+    </thead>
+    <tbody id="tableBody">
+      <tr>
+        <td><input type="number" step="any" class="xVal"></td>
+        <td><input type="number" step="any" class="yVal"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn" onclick="addRow()">+ Tambah Baris</button>
+</div>
+
+<button class="btn" onclick="calculateRegression()">Hitung Regresi</button>
+
+<div id="result"></div>
+
+<div id="prediction" style="display:none;">
+  <h3>Prediksi Y dari X</h3>
+  <input type="number" id="predictX" placeholder="Masukkan nilai X" step="any">
+  <button class="btn" onclick="predictY()">Hitung Y</button>
+  <p id="predictedY"></p>
+</div>
+
+<div id="calculationTable" style="display:none;">
+  <h3>Tabel Perhitungan Regresi</h3>
+  <table>
+    <thead>
+      <tr><th>X</th><th>Y</th><th>X²</th><th>X·Y</th></tr>
+    </thead>
+    <tbody id="calcTableBody"></tbody>
+    <tfoot>
+      <tr>
+        <th id="sumX"></th>
+        <th id="sumY"></th>
+        <th id="sumX2"></th>
+        <th id="sumXY"></th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div id="rumusSubstitusi" style="display:none;">
+  <h3>Substitusi ke Rumus</h3>
+  <p id="rumusB"></p>
+  <p id="rumusA"></p>
+</div>
+
+<canvas id="myChart" width="600" height="400"></canvas>
+
+<div class="btn-group">
+  <button class="btn" onclick="downloadChart()">📷 Download Grafik</button>
+  <button class="btn" onclick="downloadExcel()">📊 Download Excel</button>
+</div>
+
+<script src="regresi.js"></script>
+
+</body>
+</html>
