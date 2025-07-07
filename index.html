@@ -82,12 +82,7 @@
 
 <div id="result"></div>
 
-<div id="prediction" style="display:none;">
-  <h3>Prediksi Y dari X</h3>
-  <input type="number" id="predictX" placeholder="Masukkan nilai X" step="any">
-  <button class="btn" onclick="predictY()">Hitung Y</button>
-  <p id="predictedY"></p>
-</div>
+
 
 <div id="calculationTable" style="display:none;">
   <h3>Tabel Perhitungan Regresi</h3>
@@ -112,7 +107,19 @@
   <p id="rumusB"></p>
   <p id="rumusA"></p>
 </div>
+  
+<div id="prediction" style="display:none;">
+  <h3>Prediksi Y dari X</h3>
+  <input type="number" id="predictX" placeholder="Masukkan nilai X" step="any">
+  <button class="btn" onclick="predictY()">Hitung Y</button>
+  <p id="predictedY"></p>
+</div>
 
+<div id="rmseResult" style="display:none; margin-top: 10px;">
+  <h3>Nilai RMSE:</h3>
+  <p id="rmseValue"></p>
+</div>
+  
 <canvas id="myChart" width="600" height="400"></canvas>
 
 <div class="btn-group">
