@@ -47,7 +47,7 @@ function calculateRegression() {
   document.getElementById('prediction').style.display = 'block';
   tampilkanTabel(x, y, sumX, sumY, sumX2, sumXY, n);
   const rmse = hitungRMSE(x, y, a, b);
-  document.getElementById('rmseValue').textContent = rmse.toFixed(4);
+  document.getElementById('rmseValue').innerHTML = `<strong>Nilai RMSE:</strong> ${rmse.toFixed(4)}`;
   document.getElementById('rmseResult').style.display = 'block';
 
   drawChart(x, y);
