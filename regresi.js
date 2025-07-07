@@ -166,7 +166,7 @@ function hitungRMSE(x, y, a, b) {
   }
 
   const rmse = Math.sqrt(sumSquaredError / n);
-  return rmseValue;
+  return rmse;
 }
 
 
