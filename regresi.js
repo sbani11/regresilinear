@@ -56,23 +56,23 @@ function tampilkanTabel(x, y, sumX, sumY, sumX2, sumXY, n) {
   for (let i = 0; i < x.length; i++) {
     const xi = x[i], yi = y[i], x2 = xi * xi, xy = xi * yi;
     calcBody.innerHTML += `<tr>
-      <td>${xi.toFixed(2)}</td>
-      <td>${yi.toFixed(2)}</td>
-      <td>${x2.toFixed(2)}</td>
-      <td>${xy.toFixed(2)}</td>
+      <td>${xi.toFixed(4)}</td>
+      <td>${yi.toFixed(4)}</td>
+      <td>${x2.toFixed(4)}</td>
+      <td>${xy.toFixed(4)}</td>
     </tr>`;
   }
 
-  document.getElementById("sumX").innerText = sumX.toFixed(2);
-  document.getElementById("sumY").innerText = sumY.toFixed(2);
-  document.getElementById("sumX2").innerText = sumX2.toFixed(2);
-  document.getElementById("sumXY").innerText = sumXY.toFixed(2);
+  document.getElementById("sumX").innerText = sumX.toFixed(4);
+  document.getElementById("sumY").innerText = sumY.toFixed(4);
+  document.getElementById("sumX2").innerText = sumX2.toFixed(4);
+  document.getElementById("sumXY").innerText = sumXY.toFixed(4);
   document.getElementById("calculationTable").style.display = "block";
 
   document.getElementById("rumusB").innerHTML =
-    `b = (${n} × ${sumXY.toFixed(2)} - ${sumX.toFixed(2)} × ${sumY.toFixed(2)}) ÷ (${n} × ${sumX2.toFixed(2)} - ${sumX.toFixed(2)}²) = <strong>${b.toFixed(4)}</strong>`;
+    `b = (${n} × ${sumXY.toFixed(4)} - ${sumX.toFixed(4)} × ${sumY.toFixed(4)}) ÷ (${n} × ${sumX2.toFixed(4)} - ${sumX.toFixed(4)}²) = <strong>${b.toFixed(4)}</strong>`;
   document.getElementById("rumusA").innerHTML =
-    `a = (${sumY.toFixed(2)} - ${b.toFixed(4)} × ${sumX.toFixed(2)}) ÷ ${n} = <strong>${a.toFixed(4)}</strong>`;
+    `a = (${sumY.toFixed(4)} - ${b.toFixed(4)} × ${sumX.toFixed(4)}) ÷ ${n} = <strong>${a.toFixed(4)}</strong>`;
   document.getElementById("rumusSubstitusi").style.display = "block";
 }
 
