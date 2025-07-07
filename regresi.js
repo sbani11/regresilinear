@@ -39,6 +39,12 @@ function calculateRegression() {
   b = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
   a = (sumY - b * sumX) / n;
 
+  const rmse = hitungRMSE(x, y, a, b);
+document.getElementById('rmseResult').innerHTML = `
+  <p><strong>RMSE:</strong> ${rmse.toFixed(4)}</p>
+`;
+
+
   document.getElementById('result').innerHTML = `
     <h3>Hasil Regresi:</h3>
     <p>Persamaan: <strong>Y = ${a.toFixed(4)} + ${b.toFixed(4)}X</strong></p>
@@ -150,6 +156,21 @@ function drawChart(xData, yData, predictedX = null) {
     }
   });
 }
+
+function hitungRMSE(x, y, a, b) {
+  const n = x.length;
+  let sumSquaredError = 0;
+
+  for (let i = 0; i < n; i++) {
+    const yPred = a + b * x[i];
+    const error = y[i] - yPred;
+    sumSquaredError += error * error;
+  }
+
+  const rmse = Math.sqrt(sumSquaredError / n);
+  return rmse;
+}
+
 
 function downloadChart() {
   const link = document.createElement('a');
