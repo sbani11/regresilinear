@@ -35,13 +35,19 @@ function calculateRegression() {
   const sumY = y.reduce((a, b) => a + b, 0);
   const sumXY = x.reduce((acc, val, i) => acc + val * y[i], 0);
   const sumX2 = x.reduce((acc, val) => acc + val * val, 0);
+  const sumY2 = y.reduce((acc, val) => acc + val * val, 0); // ⬅️ tambahan
 
   b = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
   a = (sumY - b * sumX) / n;
 
+  // hitung koefisien korelasi r
+  const r = (n * sumXY - sumX * sumY) /
+            Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
+
   document.getElementById('result').innerHTML = `
     <h3>Hasil Regresi:</h3>
     <p>Persamaan: <strong>Y = ${a.toFixed(4)} + ${b.toFixed(4)}X</strong></p>
+    <p>Koefisien Korelasi (r): <strong>${r.toFixed(4)}</strong></p>
   `;
 
   document.getElementById('prediction').style.display = 'block';
