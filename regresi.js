@@ -43,11 +43,14 @@ function calculateRegression() {
   // hitung koefisien korelasi r
   const r = (n * sumXY - sumX * sumY) /
             Math.sqrt((n * sumX2 - sumX * sumX) * (n * sumY2 - sumY * sumY));
+  const R2 = r * r;
+
 
   document.getElementById('result').innerHTML = `
     <h3>Hasil Regresi:</h3>
     <p>Persamaan: <strong>Y = ${a.toFixed(4)} + ${b.toFixed(4)}X</strong></p>
     <p>Koefisien Korelasi (r): <strong>${r.toFixed(4)}</strong></p>
+     <p>Koefisien Determinasi (R²): <strong>${R2.toFixed(4)} (${(R2*100).toFixed(2)}%)</strong></p>
   `;
 
   document.getElementById('prediction').style.display = 'block';
